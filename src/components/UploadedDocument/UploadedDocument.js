@@ -9,10 +9,10 @@ function UploadedDocument({ file, index, moveCard }) {
 
   useEffect(() => {
     if (file.name.length > 20) {
-      const array = file.name.split("");
-      array.length = 17;
-      array.push("...");
-      setName(array.join(""));
+      const data = file.name.split("");
+      data.length = 17;
+      data.push("...");
+      setName(data.join(""));
     }
   }, [file]);
 

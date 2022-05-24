@@ -9,7 +9,7 @@ function UploadFilesSection() {
   const [isOpen, setIsOpen] = useState(false);
 
   function changeModalStatus() {
-    setIsOpen((PrevState) => !PrevState);
+    setIsOpen(false);
   }
 
   function handleInputChange(event) {
@@ -36,14 +36,15 @@ function UploadFilesSection() {
   return (
     <section
       className={style.section}
-      style={files && { backgroundColor: "#EAEBEC" }}
+      style={{
+        backgroundColor: files ? "#EAEBEC" : "#FFFFFF",
+      }}
     >
       {files ? (
         <div className={style.div}>
           {files.map((file, i) => (
             <UploadedDocument
               file={file}
-              title={file.name}
               index={i}
               key={file.name}
               moveCard={moveCard}
@@ -58,7 +59,7 @@ function UploadFilesSection() {
             className={style.input}
             onChange={handleInputChange}
             multiple
-          ></input>
+          />
           Add file
         </label>
       )}

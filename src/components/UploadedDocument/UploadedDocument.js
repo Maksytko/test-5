@@ -1,14 +1,24 @@
 import { Document, Page, pdfjs } from "react-pdf";
 import { useDrag, useDrop } from "react-dnd";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import style from "./UploadDocument.module.css";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-function UploadedDocument({ file, title, index, moveCard }) {
+function UploadedDocument({ file, index, moveCard }) {
+  const [name, setName] = useState(file.name);
+
+  useEffect(() => {
+    if (file.name.length > 20) {
+      const array = file.name.split("");
+      array.length = 17;
+      array.push("...");
+      setName(array.join(""));
+    }
+  }, [file]);
+
   const ref = useRef(null);
   const [{ isDragging }, drag] = useDrag({
     item: {
-      title,
       file,
       index,
     },
@@ -73,7 +83,7 @@ function UploadedDocument({ file, title, index, moveCard }) {
       <Document file={file}>
         <Page pageNumber={1} height={144}></Page>
       </Document>
-      <p className={style.text}>{file.name}</p>
+      <p className={style.text}>{name}</p>
     </div>
   );
 }

@@ -33,10 +33,6 @@ function UploadFilesSection() {
     );
   }, []);
 
-  useEffect(() => {
-    console.log(files);
-  }, [files]);
-
   return (
     <section
       className={style.section}

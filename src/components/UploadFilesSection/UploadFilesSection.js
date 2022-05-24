@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback } from "react";
 import update from "immutability-helper";
 import UploadedDocument from "../UploadedDocument/UploadedDocument";
 import Modal from "../Modal/Modal";

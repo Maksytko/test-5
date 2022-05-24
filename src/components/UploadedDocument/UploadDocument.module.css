@@ -5,6 +5,10 @@
   font-size: 14px;
   line-height: 19px;
   color: #49494a;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 150px;
+  white-space: nowrap;
 }
 
 .div {

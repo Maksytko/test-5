@@ -58,6 +58,7 @@ function UploadFilesSection() {
         <label className={style.label}>
           <input
             type="file"
+            accept="application/pdf"
             className={style.input}
             onChange={handleInputChange}
             multiple
